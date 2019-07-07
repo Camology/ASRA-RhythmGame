@@ -21,6 +21,7 @@ public class audioScript : MonoBehaviour
         audioSource = FindObjectOfType<AudioSource>();
         restartButton.onClick.AddListener(restartScene);
         restartButton.gameObject.SetActive(false);
+        spawnDistance = 5;
     }
 
 
@@ -59,7 +60,7 @@ public class audioScript : MonoBehaviour
         GameObject hazardInstance = (GameObject)Instantiate(hazard);
         hazardInstance.transform.position = this.transform.position;
         hazardInstance.transform.position = new Vector3(hazardInstance.transform.position.x + spawnDistance,
-                                                        -0.5f,
+                                                        -0.15f,
                                                         0);
     }
 }

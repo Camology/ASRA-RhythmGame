@@ -11,6 +11,7 @@ public class hazardScript : MonoBehaviour
     void Start()
     {
         rigidBody =  GetComponent<Rigidbody>();
+        acceleration = 8;
     }
 
     // Update is called once per frame

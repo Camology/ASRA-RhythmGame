@@ -5,11 +5,9 @@ using TMPro;
 
 public class playerScript : MonoBehaviour
 {
-    [SerializeField] private float acceleration;
-    [SerializeField] private Vector3 jumpVelocity;
+    [SerializeField] private Vector3 jumpVelocity ;
     public bool onGround;
     private Rigidbody rigidBody;
-    public float distance;
     public AudioSource crashSound;
 
     private int score;
@@ -19,14 +17,12 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         rigidBody =  GetComponent<Rigidbody>();
-        gamePaused = false;   
+        gamePaused = false;
+        jumpVelocity = new Vector3(1,8,0);   
     }
 
     // Update is called once per frame
     void FixedUpdate() {
-		if (onGround) {
-            rigidBody.AddForce(acceleration, 0f, 0f, ForceMode.Acceleration); 
-        }
         scoreUpdate();
     }
 
