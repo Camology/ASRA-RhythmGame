@@ -21,7 +21,7 @@ public class audioScript : MonoBehaviour
         audioSource = FindObjectOfType<AudioSource>();
         restartButton.onClick.AddListener(restartScene);
         restartButton.gameObject.SetActive(false);
-        spawnDistance = 5;
+        spawnDistance = 10;
     }
 
 

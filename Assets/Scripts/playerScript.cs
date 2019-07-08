@@ -18,7 +18,7 @@ public class playerScript : MonoBehaviour
     void Start() {
         rigidBody =  GetComponent<Rigidbody>();
         gamePaused = false;
-        jumpVelocity = new Vector3(1,8,0);   
+        jumpVelocity = new Vector3(1,9,0);   
     }
 
     // Update is called once per frame
