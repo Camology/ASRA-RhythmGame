@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class playerScript : MonoBehaviour
@@ -13,12 +15,15 @@ public class playerScript : MonoBehaviour
     private int score;
     public TextMeshProUGUI scoreText;
     public bool gamePaused;
+    public Button restartButton;
 
     // Start is called before the first frame update
     void Start() {
         rigidBody =  GetComponent<Rigidbody>();
         gamePaused = false;
-        jumpVelocity = new Vector3(1,9,0);   
+        jumpVelocity = new Vector3(1,9,0);
+        restartButton.onClick.AddListener(restartScene);   
+        restartButton.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,14 +41,17 @@ public class playerScript : MonoBehaviour
             if (gamePaused) {
                 Time.timeScale = 1;
                 Camera.main.GetComponent<AudioSource>().UnPause();
+                restartButton.gameObject.SetActive(false);
                 gamePaused=false;
+
             }
             else {
                 Time.timeScale = 0;
                 Camera.main.GetComponent<AudioSource>().Pause();
+                restartButton.gameObject.SetActive(true);
                 gamePaused = true;
             }
-        }        
+        }    
     }
 
     void scoreUpdate(){
@@ -70,5 +78,9 @@ public class playerScript : MonoBehaviour
             Destroy(other.gameObject);
             score-=50;
         }   
+    }
+
+    void restartScene() {
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
 }
