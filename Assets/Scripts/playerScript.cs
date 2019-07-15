@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class playerScript : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class playerScript : MonoBehaviour
     public AudioSource crashSound;
 
     private int score;
-    public TextMeshProUGUI scoreText;
+    public Text scoreText;
     public bool gamePaused;
     public Button restartButton;
 
@@ -51,7 +50,7 @@ public class playerScript : MonoBehaviour
                 restartButton.gameObject.SetActive(true);
                 gamePaused = true;
             }
-        }    
+        }  
     }
 
     void scoreUpdate(){
